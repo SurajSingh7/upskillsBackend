@@ -25,7 +25,7 @@ app.use(cookieParser());
 
 app.use(
 	cors({
-		origin:"http://localhost:3000",
+		origin:"https://melodious-bavarois-b1e2e4.netlify.app/",
 		credentials:true,
 	})
 )
