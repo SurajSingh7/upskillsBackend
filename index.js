@@ -23,12 +23,22 @@ database.connect();
 app.use(express.json());
 app.use(cookieParser());
 
+// app.use(
+// 	cors({
+// 		origin:"http://localhost:3000",
+// 		credentials:true,
+// 	})
+// )
+
 app.use(
 	cors({
-		origin:"https://melodious-bavarois-b1e2e4.netlify.app/",
-		credentials:true,
+		origin: "*",
+		credentials: true,
 	})
-)
+);
+
+
+
 
 app.use(
 	fileUpload({
