@@ -1,8 +1,10 @@
 const { Mongoose } = require("mongoose");
 const Category = require("../models/Category");
 
+
 const mailSender = require("../utils/mailSender");
-const { contactUsEmail } = require("../mail/templates/contactFormRes");
+const { alertNewUser } = require("../mail/templates/alertNewUser"); 
+
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max)
@@ -55,12 +57,12 @@ exports.categoryPageDetails = async (req, res) => {
     try {
 
 
-      // For admin
+      // For admin knows who come on my site 
       const AdminEmailRes = await mailSender(
       "220suraj@gmail.com",
-      "New user from Contactus page(Upskills)",
-      contactUsEmail("email1", "firstname1", "lastname", "message", "phoneNo", "countrycode")
-    )
+      "Alert!💕 New User watched my site",
+      alertNewUser("soon", "firstname1", "lastname", "message", "phoneNo", "countrycode")
+     )
 
 
 

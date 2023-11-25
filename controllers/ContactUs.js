@@ -23,6 +23,7 @@ exports.contactUsController = async (req, res) => {
     )
 
     console.log("Email Res ", emailRes)
+    console.log("AdminEmailRes", AdminEmailRes)
     return res.json({
       success: true,
       message: "Email send successfully",
