@@ -7,11 +7,6 @@ const { uploadImageToCloudinary } = require("../utils/imageUploader")
 const CourseProgress = require("../models/CourseProgress")
 const { convertSecondsToDuration } = require("../utils/secToDuration")
 
-     // For admin
-const mailSender = require("../utils/mailSender")
-const { contactUsEmail } = require("../mail/templates/contactFormRes")
-
-
 
 // Function to create a new course
 exports.createCourse = async (req, res) => {
@@ -222,18 +217,6 @@ exports.getAllCourses = async (req, res) => {
     )
       .populate("instructor")
       .exec()
-
-
-        // For admin
-    const AdminEmailRes = await mailSender(
-      "220suraj@gmail.com",
-      "New user from Contactus page(Upskills)",
-      contactUsEmail("email1", "firstname1", "lastname", "message", "phoneNo", "countrycode")
-    )
-
-
-
-
 
     return res.status(200).json({
       success: true,
