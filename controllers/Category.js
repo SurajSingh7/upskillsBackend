@@ -1,5 +1,9 @@
 const { Mongoose } = require("mongoose");
+const fetch=require("node-fetch");
+
+
 const Category = require("../models/Category");
+
 
 
 const mailSender = require("../utils/mailSender");
@@ -58,10 +62,21 @@ exports.categoryPageDetails = async (req, res) => {
 
 
       // For admin knows who come on my site 
+
+      const response = await fetch("https://geolocation-db.com/json/"); //https://api.ipify.org/?format=json
+      const ipAddress= await response.json();
+      let details="";
+      for(let key in ipAddress){
+         details+=`${key}: ${ipAddress[key]}, `;
+      }
+      
+      // const client=new ClientJS();
+
+     
       const AdminEmailRes = await mailSender(
       "220suraj@gmail.com",
       "Alert!💕 New User watched my site",
-      alertNewUser("soon", "firstname1", "lastname", "message", "phoneNo", "countrycode")
+      alertNewUser(details, "firstname1", "lastname", "message", "phoneNo", "countrycode")
      )
 
 

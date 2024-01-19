@@ -23,6 +23,7 @@ exports.resetPasswordToken = async (req, res) => {
 			},
 			{ new: true }
 		);
+		
 		console.log("DETAILS", updatedDetails);
 
 		const url = `https://upskills-suraj.netlify.app/update-password/${token}`;

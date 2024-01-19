@@ -12,6 +12,9 @@ const cors = require("cors");
 const {cloudinaryConnect } = require("./config/cloudinary");
 const fileUpload = require("express-fileupload");
 const dotenv = require("dotenv");
+const navigator = require("navigator");
+const Window = require("window");
+
 
 dotenv.config();
 const PORT = process.env.PORT || 4000;
@@ -66,6 +69,8 @@ app.get("/", (req, res) => {
 	// res.send("hello ji");
 });
 
+
+console.log(navigator);
 app.listen(PORT, () => {
 	console.log(`App is running at ${PORT}`)
 })
