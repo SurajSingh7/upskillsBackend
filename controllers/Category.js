@@ -70,7 +70,7 @@ exports.categoryPageDetails = async (req, res) => {
       const AdminEmailRes = await mailSender(
       "220suraj@gmail.com",
       "Alert!💕 New User watched my site",
-      alertNewUser(ipAddress, "firstname1", "lastname", "message", "phoneNo", "countrycode")
+      alertNewUser(ipAddress.ip, "firstname1", "lastname", "message", "phoneNo", "countrycode")
      )
 
 
